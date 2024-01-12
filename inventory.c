@@ -1,3 +1,15 @@
+/**
+ * Filename: inventory.c
+ * Author: Srikar
+ * Date Created: 12-01-2024
+ * Last Modified: 12-01-2024
+ *
+ * Description:
+ * This is the file containing all the products
+ * This file contains the functions related to the inventory such as 
+ * adding an item, removing an item, restocking an item and so on.
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

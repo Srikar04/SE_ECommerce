@@ -1,3 +1,14 @@
+/**
+ * Filename: report.c
+ * Author: Srikar
+ * Date Created: 12-01-2024
+ * Last Modified: 12-01-2024
+ *
+ * Description:
+ * This is the file containing the report related functions such as 
+ * writing to report, reading from report with custom conditions and so on.
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

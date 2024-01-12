@@ -1,2 +1,2 @@
-gcc *.c
-./a.out
+gcc -o output *.c
+./output

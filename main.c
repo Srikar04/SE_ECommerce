@@ -5,8 +5,8 @@
  * Last Modified: 12-01-2024
  *
  * Description:
- * This is the main file that is the start point of the project.
- *
+ * This is the main file that is the starting point of the project.
+ * In this file, user can select his role and perform the required operations
  */
 
 #include <stdio.h>

@@ -1,3 +1,13 @@
+/**
+ * Filename: item.c
+ * Author: Srikar
+ * Date Created: 12-01-2024
+ * Last Modified: 12-01-2024
+ *
+ * Description:
+ * This is the file containing the item related functions such
+ * creating an item
+ */
 typedef struct item{
     int item_id;
     char* item_name;
