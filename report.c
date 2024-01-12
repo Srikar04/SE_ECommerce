@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 void writeReport(const char* name, const char* paymentType, double totalBillPaid) {
     char* filename = "report.csv";
@@ -11,4 +13,76 @@ void writeReport(const char* name, const char* paymentType, double totalBillPaid
     } else {
         printf("Failed to open report.csv for writing.\n");
     }
+}
+
+void readReport(){
+    char* filename = "report.csv";
+    FILE* file = fopen(filename, "r"); // Open the file in read mode
+
+    char line[100];
+    printf("Name\tPayment Type\tTotal Bill Paid\n");
+    while(fgets(line, sizeof(line), file)){
+        if(strlen(line) == 0){
+            printf("Report is empty.\n");
+            break;
+        }
+        char* token = strtok(line, ",");
+        while(token != NULL){
+            printf("%s\t", token);
+            token = strtok(NULL, ",");
+        }
+        printf("\n");
+    }
+    fclose(file);
+}
+
+void readReportByName(char* name){
+    char* filename = "report.csv";
+    FILE* file = fopen(filename, "r"); // Open the file in read mode
+
+    char line[100];
+    printf("Name\tPayment Type\tTotal Bill Paid\n");
+    while(fgets(line, sizeof(line), file)){
+        if(strlen(line) == 0){
+            printf("Report is empty.\n");
+            break;
+        }
+        char* token = strtok(line, ",");
+        if(strcmp(token,name) == 0){
+            while(token != NULL){
+                printf("%s\t", token);
+                token = strtok(NULL, ",");
+            }
+        }
+        printf("\n");
+    }
+    fclose(file);
+}
+
+void readReportByAmount(double amount){
+     char* filename = "report.csv";
+    FILE* file = fopen(filename, "r"); // Open the file in read mode
+
+    char line[100];
+    printf("Name\tPayment Type\tTotal Bill Paid\n");
+    while(fgets(line, sizeof(line), file)){
+        if(strlen(line) == 0){
+            printf("Report is empty.\n");
+            break;
+        }
+        char* line_copy = strdup(line);
+        char* token;
+        int count = 0;
+        while((token = strtok(count == 0 ? line : NULL,",")) !=NULL && ++count < 3);
+        double num = atoi(token);
+        if(num >= amount){
+            char* token1 = strtok(line_copy,","); // Tokenize the copy of the line
+            while(token1 != NULL){
+                printf("%s\t", token1);
+                token1 = strtok(NULL, ",");
+            }
+            printf("\n");
+        }
+    }
+    fclose(file);
 }

@@ -16,6 +16,7 @@
 #include "inventory.h"
 #include "item.h"
 #include "cart.h"
+#include "report.h"
 
 int main(){
     Inventory* inventory;
@@ -96,7 +97,8 @@ int main(){
                 printf("2. Add new Item\n");
                 printf("3. Restock Items\n");
                 printf("4. Remove Items\n");
-                printf("5. Exit to main menu\n");
+                printf("5. Generate Report\n");
+                printf("6. Exit to main menu\n");
 
                 printf("Your Option: ");
                 scanf("%d", &choice);
@@ -144,6 +146,32 @@ int main(){
 
                     removeItem(inventory,itemId);
                     saveInventoryState(inventory);
+                }else if(choice == 5){
+                    printf("1.Show all transaction\n");
+                    printf("2.Show transactions by name\n");
+                    printf("3.Show transactions above a certain amount\n");
+                    int num;
+                    scanf("Your Option:%d",&num);
+                    switch (num) {
+                        case 1:
+                            readReport();
+                            break;
+                        case 2:
+                            char name[100];
+                            printf("Enter name: ");
+                            scanf("%s", name);
+                            readReportByName(name);
+                            break;
+                        case 3:
+                            double amount;
+                            printf("Enter amount: ");
+                            scanf("%lf", &amount);
+                            readReportByAmount(amount);
+                            break;
+                        default:
+                            printf("Invalid option\n");
+                            break;
+                    }
                 }else {
                     break;
                 }

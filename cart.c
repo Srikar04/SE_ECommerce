@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "report.h"
+
 typedef struct cartItem {
     char itemName[100];
     int itemId;
@@ -85,6 +87,8 @@ void checkout(Cart* cart) {
     printf("Total Bill (including GST): %.2f\n", totalBill + gst);
 
     printf("\nPayment Done. Happy Shopping.\n");
+
+    writeReport(name, paymentOption, totalBill + gst);
 }
 
 
