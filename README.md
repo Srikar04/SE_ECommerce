@@ -12,8 +12,9 @@ Welcome to E-Commerce App! This application provides a platform for users to bro
 ```bash
    git clone https://github.com/Srikar04/SE_ECommerce.git
 ```
-2. Run the bat file:
+2. Give permissions to execute and Run the bat file:
 ```bash
+   chmod +x run.bat
    ./run.bat
 ```
 if it does not work
